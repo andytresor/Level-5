@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>Welcome {{ articles.title }}</h1>
+
+    <a href="/add-post">add post</a>
+
+    <a href="/add_user">add user</a>
+    
+    <div class="table">
+      <h1>All Articles</h1>
+      <table>
+        <tr>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Actions</th>
+              <th>Delete</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for article in articles %}
+            <td>{{article.id}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.author}}</td>
+            <td>{{article.description}}</td>
+            <td><a href="/view/{{ article.id}}">View</a></td>
+            <td><a href="/update/{{ article.id}}">Update</a></td>
+            <td>
+              <form action="/delete/{{ article.id }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                <button>Delete</button>
+              </form>
+            </td>
+          </tbody>
+          {% endfor %}
+        </tr>
+      </table>
+    </div>
+
+    
+  </body>
+</html>

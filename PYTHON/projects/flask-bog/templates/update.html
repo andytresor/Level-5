@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <a href="/">home</a>
+            <form action="/update/{{article.id}}" method="post">
+                <div class="">
+                    <label for="">Title</label>
+                    <input type="text" name="title" placeholder="{{article.title}}" required>
+                </div>
+                <div class="">
+                    <label for="">Author</label>
+                    <input type="text" name="author" placeholder="{{article.author}}" required>
+                </div>
+                <div class="">
+                    <label for="">Description</label>
+                    <textarea name="description" placeholder="{{article.description}}" required></textarea>
+                </div>
+                <button>create</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

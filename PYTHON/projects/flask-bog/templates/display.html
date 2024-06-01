@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+
+    <a href="/"></a>
+    <h1>Welcome {{ users.name }}</h1>
+
+
+
+    <div class="table">
+        <h1>All Users</h1>
+        <table>
+          <tr>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Users</th>
+                <th>Emails</th>
+                <th>Phone</th>
+                <th>View</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.phone}}</td>
+              <td><a href="/views/{{ user.id }}">View</a></td>
+              <td><a href="/updat/{{ user.id}}">Update</a></td>
+              <td>
+                <form action="/delet/{{ user.id }}" method="post">
+                  <input type="hidden" name="_method" value="DELETE" />
+                  <button>Delete</button>
+                </form>
+              </td>
+            </tbody>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+  </body>
+</html>
